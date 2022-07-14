@@ -1,28 +1,22 @@
+<?php include "../inc/dbinfo.inc"; ?>
 <?php
-//conect to database
-$servername = "database-1.ccqtyec2mqcu.ap-south-1.rds.amazonaws.com";
-$username = "admin";
-$password = "admin123";
-$db = "contact";
-
-$conn = mysqli_connect($servername, $username, $password,$db) or die ("unable to contact");
+$conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+if (mysqli_connect_errno()) echo "Failed to connect to MySQL: " . mysqli_connect_error();
 
 //insert
-$name = $_POST['name']; 
+$name = $_POST['name'];
 $email = $_POST['email'];
 $run = "INSERT INTO `contact`(name, email) VALUES ( '$name' , '$email')";
 $result = mysqli_query( $conn , $run) ;
 if($result)
 {
-	echo "<br><br><br><br><br><br><br><br><h1 align='center'>Yours Details are Submitted...!!</h1>";
-        echo "<br><br><br><br><br><br><br><br><h1 align='center'>Thank You...!!</h1>";
-        header( "refresh:3;url=index.html" );
-    
+echo "<br><br><br><br><br><br><br><br><h1 align='center'>Yours Details are Submitted...!!</h1>";
+echo "<br><br><br><br><br><br><br><br><h1 align='center'>Thank You...!!</h1>";
+header( "refresh:3;url=index.html" );
 }
 else
 {
-	echo "not registered";
-        header( "refresh:3;url=index.html" );
-} 
-
+echo "not registered";
+header( "refresh:3;url=index.html" );
+}
 ?>
