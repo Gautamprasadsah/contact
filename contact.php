@@ -6,7 +6,9 @@ if (mysqli_connect_errno()) echo "Failed to connect to MySQL: " . mysqli_connect
 //insert
 $name = $_POST['name'];
 $email = $_POST['email'];
-$run = "INSERT INTO `contact`(name, email) VALUES ( '$name' , '$email')";
+$phonenumber = $_POST['phonenumber'];
+$message = $_POST['message'];
+$run = "INSERT INTO `contact`(name, email, phonenumber, message) VALUES ( '$name' , '$email' , '$phonenumber' , '$message')";
 $result = mysqli_query( $conn , $run) ;
 if($result)
 {
