@@ -1,18 +1,7 @@
+<?php include "../inc/dbinfo.inc"; ?>
 <?php
-//conect to database
-$servername = "database-1.ccqtyec2mqcu.ap-south-1.rds.amazonaws.com";
-$username = "admin";
-$password = "admin123";
-$db = "test2";
-$conn = mysqli_connect($servername, $username, $password,$db);
- 
-//checking connection  
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-else{
-echo "connected";
-}
+$conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+if (mysqli_connect_errno()) echo "Failed to connect to MySQL: " . mysqli_connect_error();
 //insert
 $name = $_POST['name']; 
 $email = $_POST['email'];
