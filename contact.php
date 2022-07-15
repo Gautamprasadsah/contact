@@ -8,7 +8,7 @@ $email = $_POST['email'];
 $phonenumber = $_POST['phonenumber']; 
 $message = $_POST['message'];   
 
-$run = "INSERT INTO `test2`(name, email, phonenumber, message) VALUES ( '$name' , '$email' , '$phonenumber' , '$message' )";
+$run = "INSERT INTO `contact`(name, email, phonenumber, message) VALUES ( '$name' , '$email' , '$phonenumber' , '$message' )";
 $result = mysqli_query( $conn , $run) ;
 if($result)
 {
